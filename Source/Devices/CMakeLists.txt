@@ -1,0 +1,3 @@
+add_subdirectory(MediaConnect)
+add_subdirectory(MediaRenderer)
+add_subdirectory(MediaServer)
