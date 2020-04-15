@@ -7,6 +7,8 @@ project(Platinum
         LANGUAGES CXX
         VERSION 1.2.0)
 
+list(APPEND CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR})
+
 find_package(PkgConfig)
 find_package(Neptune)
 
@@ -29,7 +31,9 @@ configure_file(cmake/platinum.pc.cmake
                ${CMAKE_CURRENT_BINARY_DIR}/platinum.pc @ONLY)
 
 install(TARGETS ${PROJECT_NAME}
-        PUBLIC_HEADER DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/${PROJECT_NAME})
+        PUBLIC_HEADER DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/${PROJECT_NAME}
+        LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+        ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR})
 
 get_property(headers GLOBAL PROPERTY core_HEADERS)
 install(FILES ${headers}
